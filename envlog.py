@@ -35,14 +35,22 @@ def main():
         cluster.start_thread()
         print('initlialized sensor cluster')
 
-#    v = viewer.viewer.Viewer(80)
-#    v.start()
+    # run webserver
+    v = viewer.viewer.Viewer(port=80)
+    v.start()
 
-#    sc0 = sensor.usbwde1.UsbWde1(device='/dev/ttyUSB0', sensornames=['', 'Innen1','Außen',''])
-#    sc0.start_thread()
+    #t = viewer.viewer.TestThread()
+    #t.start()
 
+    # a really stupid way of reading out the current sensor data by polling
+    cnt = 0
     while 1:
-        time.sleep(100)
+        time.sleep(10)
+        cnt += 1
+        f = open('sensordata', 'w')
+        for cluster in sc:
+            f.write(cluster.get_sensordata())
+        print("envlog ...")
 
 
 if __name__ == '__main__':

@@ -4,9 +4,12 @@ import sensor.usbwde1
 
 class Sensorcluster:
     def __init__(self):
-        self.running = False
+        pass
 
     def print_sensordata(self):
+        pass
+
+    def get_sensordata(self):
         pass
 
     def run(self):
@@ -15,8 +18,5 @@ class Sensorcluster:
             self.print_sensordata()
 
     def start_thread(self):
-        if not self.running:
-            threading.Thread(target=self.run).start()
-        else:
-            print('thread is running already')
+        threading.Thread(target=self.run).start()
  

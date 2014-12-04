@@ -31,6 +31,12 @@ class UsbWde1(sensor.sensorcluster.Sensorcluster):
                 self.sensor[i * 2 + 1].set_value(float(values[i + 10]))
 
 
+    def get_sensordata(self):
+        data = ''
+        for s in self.sensor:
+             data += '{} {}\n'.format(s.get_name(), s.get_value())
+        return data
+
     def get_data(self):
         try:
             line = self.ser.readline()

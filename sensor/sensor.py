@@ -11,7 +11,7 @@ class Sensor:
     def __init__(self, name, sensortype):
         self.name = name
         self.sensortype = sensortype
-        self.value = 0.0
+        self.value = -99.9 # TODO a better way to mark invalid data
 
     def get_name(self):
         return self.name
