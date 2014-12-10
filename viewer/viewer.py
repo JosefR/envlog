@@ -5,7 +5,7 @@ import time
 import os.path
 
 class Viewer(threading.Thread):
-    def __init__(self, address='127.0.0.1', port=80):
+    def __init__(self, address='0.0.0.0', port=8000):
         threading.Thread.__init__(self)
         handler_class = ViewerRequestHandler
         handler_class.protocol_version = 'HTTP/1.0'

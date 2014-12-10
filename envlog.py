@@ -36,7 +36,7 @@ def main():
         print('initlialized sensor cluster')
 
     # run webserver
-    v = viewer.viewer.Viewer(port=80)
+    v = viewer.viewer.Viewer(port=8000)
     v.start()
 
     #t = viewer.viewer.TestThread()
