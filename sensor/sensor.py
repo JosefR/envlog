@@ -1,13 +1,11 @@
-from enum import Enum
-
-class Sensortype(Enum):
-    UNKNOWN = 0
-    TEMPERATURE = 1
-    PRESSURE = 2 # barometric pressure
-    HUMIDITY = 3 
-    VELOCITY = 4 # wind velocity
 
 class Sensor:
+    SENSORTYPE_UNKNOWN = 0
+    SENSORTYPE_TEMPERATURE = 1
+    SENSORTYPE_PRESSURE = 2 # barometric pressure
+    SENSORTYPE_HUMIDITY = 3 
+    SENSORTYPE_VELOCITY = 4 # wind velocity
+
     def __init__(self, name, sensortype):
         self.name = name
         self.sensortype = sensortype

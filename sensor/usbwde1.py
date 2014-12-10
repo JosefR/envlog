@@ -17,8 +17,8 @@ class UsbWde1(sensor.sensorcluster.Sensorcluster):
         
         for i in range(0, 8):
             print('add sensor {}'.format(names[i]))
-            s_temp = sensor.sensor.Sensor(names[i], sensor.sensor.Sensortype.TEMPERATURE)
-            s_hum = sensor.sensor.Sensor(names[i], sensor.sensor.Sensortype.HUMIDITY)
+            s_temp = sensor.sensor.Sensor(names[i], sensor.sensor.Sensor.SENSORTYPE_TEMPERATURE)
+            s_hum = sensor.sensor.Sensor(names[i], sensor.sensor.Sensor.SENSORTYPE_HUMIDITY)
             self.sensor.append(s_temp)
             self.sensor.append(s_hum)
 
