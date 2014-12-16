@@ -32,7 +32,7 @@ class ViewerRequestHandler(http.server.SimpleHTTPRequestHandler):
             <body>\
             <p>Data: {}</p>\
             </body>\
-            </html>'.format(sensordata)
+            </html>'.format(sensordata.replace('\n','</br>'))
         self.send_response(200) # Response 'OK'
         self.send_header("Content type", "Content-Type: text/html; charset=utf-8")
         self.send_header("Content-length", len(r))
