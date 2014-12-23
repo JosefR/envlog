@@ -1,3 +1,4 @@
+import time
 
 class Sensor:
     SENSORTYPE_UNKNOWN = 0
@@ -10,6 +11,7 @@ class Sensor:
         self.name = name
         self.sensortype = sensortype
         self.value = -99.9 # TODO a better way to mark invalid data
+        self.last_update = 0
 
     def get_name(self):
         return self.name
@@ -24,7 +26,15 @@ class Sensor:
         self.sensortype = sensortype
 
     def get_value(self):
+
+        # only return a value if it is not older than 15 minutes
+        ts time.time()
+        if (ts - self_lastupdate) > 900:
+            return None
+
         return self.value
 
     def set_value(self, val):
         self.value = val
+        self.last_update = time.time()
+

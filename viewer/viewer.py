@@ -2,6 +2,7 @@ import sys
 import http.server
 import threading
 import time
+import datetime
 import os.path
 
 class Viewer(threading.Thread):
@@ -30,9 +31,12 @@ class ViewerRequestHandler(http.server.SimpleHTTPRequestHandler):
         r = '<html>\
             <head><title>Envlog</title></head\
             <body>\
-            <p>Data: {}</p>\
+            <p style="font-size: 2em">\
+            {}\
+            <p>updated: {}</p>\
+            </p>\
             </body>\
-            </html>'.format(sensordata.replace('\n','</br>'))
+            </html>'.format(sensordata.replace('\n','</br>'), datetime.datetime.now())
         self.send_response(200) # Response 'OK'
         self.send_header("Content type", "Content-Type: text/html; charset=utf-8")
         self.send_header("Content-length", len(r))
