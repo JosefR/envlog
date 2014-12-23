@@ -34,7 +34,15 @@ class UsbWde1(sensor.sensorcluster.Sensorcluster):
     def get_sensordata(self):
         data = ''
         for s in self.sensor:
-             data += '{} {}\n'.format(s.get_name(), s.get_value())
+            value = s.get_value()
+            stype = s.get_sensortype()
+            if s.is_valid():
+                if stype == s.SENSORTYPE_TEMPERATURE:
+                    data += '{} {}°C\n'.format(s.get_name(), value)
+                elif stype == s.SENSORTYPE_HUMIDITY:
+                    data += '{} {}%\n'.format(s.get_name(), value)
+                else:
+                    data += '{} {}.\n'.format(s.get_name(), value)
         return data
 
     def get_data(self):
