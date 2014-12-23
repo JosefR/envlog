@@ -24,8 +24,8 @@ class ViewerRequestHandler(http.server.SimpleHTTPRequestHandler):
 
     def do_GET(self):
         sensordata = ''
-        if os.path.exists('sensordata'):
-            with open('sensordata', 'r') as f:
+        if os.path.exists('/tmp/sensordata'):
+            with open('/tmp/sensordata', 'r') as f:
                 sensordata = f.read()
         r = '<html>\
             <head><title>Envlog</title></head\

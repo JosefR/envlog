@@ -47,7 +47,7 @@ def main():
     while 1:
         time.sleep(10)
         cnt += 1
-        f = open('sensordata', 'w')
+        f = open('/tmp/sensordata', 'w')
         for cluster in sc:
             f.write(cluster.get_sensordata())
         print("envlog ...")
