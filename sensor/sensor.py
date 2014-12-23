@@ -28,7 +28,7 @@ class Sensor:
     def get_value(self):
 
         # only return a value if it is not older than 15 minutes
-        ts time.time()
+        ts = time.time()
         if (ts - self_lastupdate) > 900:
             return None
 
