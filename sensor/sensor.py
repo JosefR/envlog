@@ -25,13 +25,14 @@ class Sensor:
     def set_sensortype(self, sensortype):
         self.sensortype = sensortype
 
-    def get_value(self):
-
-        # only return a value if it is not older than 15 minutes
+    def is_valid(self):
+        # invalid if older than 15 min
         ts = time.time()
         if (ts - self.last_update) > 900:
-            return None
+            return False
+        return True
 
+    def get_value(self):
         return self.value
 
     def set_value(self, val):
