@@ -33,8 +33,8 @@ class ViewerRequestHandler(http.server.SimpleHTTPRequestHandler):
             <body>\
             <p style="font-size: 2em">\
             {}\
-            <p>updated: {}</p>\
             </p>\
+            <p>updated: {}</p>\
             </body>\
             </html>'.format(sensordata.replace('\n','</br>'), datetime.datetime.now())
         self.send_response(200) # Response 'OK'
